@@ -28,6 +28,9 @@ int main() {
     cout << "Unsorted array:" << endl;
     printArray(roulettes);
 
+    // Confirm size
+    cout << "Array size: " << roulettes.size() << endl;
+
     // Find target
     int target = 3;
     array<int, SIZE>::iterator it;
@@ -94,8 +97,8 @@ void printArray(const array<int, SIZE>& arr) {
     // Args:
     // - arr: array to print (pass by reference, const)
 
-    for (const int& item : arr) {
-        cout << item << " ";
+    for (const int& i : arr) {
+        cout << i << " ";
     }
     cout << endl;
     return;
