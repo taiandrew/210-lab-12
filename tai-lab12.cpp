@@ -42,14 +42,26 @@ int main() {
     int max = *max_element(roulettes.begin(), roulettes.end());
     cout << "Max value: " << max << endl;
 
-    // Sort
+    // Sort in place
     sort(roulettes.begin(), roulettes.end());
     cout << "Sorted array:" << endl;
     printArray(roulettes);
 
-    // Double check max
+    // Double check max using end of sorted array
     cout << "Max value (double check): " << roulettes.back() << endl;
 
+    // array of SIZE 1s
+    array<int, SIZE> ones;
+    ones.fill(1);
+    cout << "Array of 1s:" << endl;
+    printArray(ones);
+
+    // 2-d array
+    array< array<int, SIZE>, 2> twoD;
+    twoD[0] = roulettes;
+    twoD[1] = ones;
+    cout << "Last row of 2-D array" << endl;
+    cout << twoD[0][SIZE-1] << " " << twoD[1][SIZE-1] << endl;
 
     return 0;
 }
@@ -80,7 +92,7 @@ void readFile(array<int, SIZE>& arr, string filename) {
 void printArray(const array<int, SIZE>& arr) {
     // Prints contents of array
     // Args:
-    // - arr: array to print (pass by reference)
+    // - arr: array to print (pass by reference, const)
 
     for (const int& item : arr) {
         cout << item << " ";
