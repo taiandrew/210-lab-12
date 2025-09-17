@@ -28,6 +28,28 @@ int main() {
     cout << "Unsorted array:" << endl;
     printArray(roulettes);
 
+    // Find target
+    int target = 3;
+    array<int, SIZE>::iterator it;
+    it = find(roulettes.begin(), roulettes.end(), target);
+    if (it != roulettes.end()) {
+        cout << "Target " << target << " found at index " << it - roulettes.begin() << "." << endl;
+    } else {
+        cout << "Target " << target << " not found." << endl;
+    }
+
+    // Find max
+    int max = *max_element(roulettes.begin(), roulettes.end());
+    cout << "Max value: " << max << endl;
+
+    // Sort
+    sort(roulettes.begin(), roulettes.end());
+    cout << "Sorted array:" << endl;
+    printArray(roulettes);
+
+    // Double check max
+    cout << "Max value (double check): " << roulettes.back() << endl;
+
 
     return 0;
 }
