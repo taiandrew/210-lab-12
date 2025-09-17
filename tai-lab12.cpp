@@ -13,7 +13,7 @@ using namespace std;
 const int SIZE = 50;
 
 // Function prototypes
-void readFile(array<string, SIZE>&, int&, string);
+void readFile(array<string, SIZE>& arr, string filename);
 
 // Main
 int main() {
@@ -22,11 +22,10 @@ int main() {
 }
 
 // Programmer functions
-void readFile(array<string, SIZE>& arr, int& size, string filename) {
+void readFile(array<string, SIZE>& arr, string filename) {
     // Reads contents of file into array
     // Args:
     // - arr: array to store file contents (pass by reference)
-    // - size: number of elements in array
     // - filename: name of file to read from
 
     // Open file
@@ -37,13 +36,9 @@ void readFile(array<string, SIZE>& arr, int& size, string filename) {
     }
 
     // Read file contents into array
-    size = 0;
     for (int i = 0; i < SIZE; ++i) {
-        if (getline(fin, arr[i])) {
-            ++size;
-        } else {
-            break;
-        }
+        if (fin.eof()) break;
+        getline(fin, arr[i]);
     }
     fin.close();
     return;
